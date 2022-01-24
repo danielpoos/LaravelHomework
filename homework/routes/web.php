@@ -14,5 +14,5 @@ use \App\Http\Controllers\HomeworkController;
 |
 */
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {return view('welcome');})->name('welcome');
 Route::resource('/homework', HomeworkController::class);
