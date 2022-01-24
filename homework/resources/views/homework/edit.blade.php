@@ -14,11 +14,20 @@
         <!--<input type="hidden" name="_method" value="PATCH">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">-->
         <div>
+            Name:<br><p>{{$homework->name}}</p>
+        </div>
+        <div>
+            Class:<br><p>{{$homework->class}}</p>
+        </div>
+        <div>
+            Url:<br><a href="{{ $homework->url }}">{{$homework->url}}</a>
+        </div>
+        <div>
             Points:<br>
             <input type="number" name="points" value="{{ $homework->points }}">
         </div>
         <div>
-        Message:<br>
+            Message:<br>
             <input type="text" name="message" value="{{ $homework->message }}">
         </div>
         <div>

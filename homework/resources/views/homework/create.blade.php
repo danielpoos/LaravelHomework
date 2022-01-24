@@ -17,27 +17,7 @@
     -->
     <form method='POST' action="{{ route('homework.store') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div>
-            Name:<br>
-            <input type="text" name="name" value="{{ old('name') }}">
-            @error('name')
-                <p>{{$message}}</p>
-            @enderror
-        </div>
-        <div>
-            Class:<br>
-            <input type="number" name="class" value="{{ old('class') }}">
-            @error('class')
-                <p>{{$message}}</p>
-            @enderror
-        </div>
-        <div>
-            Url:<br>
-            <input type="number" name="url" value="{{ old('url') }}">
-            @error('url')
-                <p>{{$message}}</p>
-            @enderror
-        </div>
+        
         <div>
             <input type="submit" value="Create">
         </div>

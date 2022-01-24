@@ -10,13 +10,13 @@ class Homework extends Model
     use HasFactory;
 
 
-    protected $fillable = [
+    protected $hidden = [
         'name',
         'class',
         'url',
     ];
 
-    protected $empty = [
+    protected $fillable = [
         'points',
         'message',
     ];

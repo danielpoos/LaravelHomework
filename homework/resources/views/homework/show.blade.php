@@ -9,6 +9,12 @@
 <body>
     <h1>The homework of {{ $homework->name }}</h1>
     <p>{{ $homework->class }}</p>
-    <p>{{ $homework->url }}</p>
+    <a href="{{ $homework->url }}">{{$homework->url}}</a>
+    @if($homework->points != 0)
+        <p>{{$homework->points}}</p>
+        <p>{{$homework->message}}</p>
+    @endif
+    <p><a href="{{ route('homework.edit', $homework->id) }}">Edit this</a></p>
+    <!--<a href="{{ route('homework.create') }}">Add new</a>-->
 </body>
 </html>

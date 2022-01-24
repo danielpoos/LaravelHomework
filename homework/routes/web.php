@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\HomeworkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('/homework', \App\Http\Controllers\HomeworkController::class);
+Route::get('/', function () {return view('welcome');});
+Route::resource('/homework', HomeworkController::class);

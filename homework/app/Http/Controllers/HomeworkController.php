@@ -9,8 +9,8 @@ class HomeworkController extends Controller
 {
     public function index()
     {
-        $homework = Homework::orderBy('name')->get();
-        return view('homework.index', [ 'homework' => $homework ]);
+        $homework = Homework::where(1);
+        return view('homework.index', compact('homework'));
     }
 
     public function create()
@@ -20,10 +20,9 @@ class HomeworkController extends Controller
 
     public function store(HomeworkRequest $request)
     {
-        $adatok = $request->only(['name', 'class', 'url']);
-
+        $data = $request->only(['points', 'message']);
         $homework = new Homework();
-        $homework->fill($adatok);
+        $homework->fill($data);
         $homework->save();
         return redirect()->route('homework.index');
     }
@@ -40,8 +39,8 @@ class HomeworkController extends Controller
 
     public function update(HomeworkRequest $request, Homework $homework)
     {
-        $adatok = $request->only(['person', 'class', 'url']);
-        $homework->fill($adatok);
+        $data = $request->only(['points', 'message']);
+        $homework->fill($data);
         $homework->save();
         return redirect()->route('homework.show', $homework->id);
     }
