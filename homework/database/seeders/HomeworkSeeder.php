@@ -13,7 +13,7 @@ class HomeworkSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Homework::factory(3)->create();
+        \App\Models\Homework::factory(13)->create();
 
     }
 }

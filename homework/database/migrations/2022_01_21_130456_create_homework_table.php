@@ -18,8 +18,8 @@ class CreateHomeworkTable extends Migration
             $table->string('name');
             $table->integer('class');
             $table->text('url');
-            $table->integer('points');
-            $table->text('message');
+            $table->integer('points')->nullable(true);
+            $table->text('message')->nullable(true);
             $table->timestamps();
         });
     }

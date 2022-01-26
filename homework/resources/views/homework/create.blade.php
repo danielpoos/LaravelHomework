@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
-    <h1>New homework</h1>
+<p id="smth">New homework</p>
     <!--
     @if ($errors->any())
         @foreach ($errors->all() as $error)
@@ -18,9 +18,29 @@
     -->
     <form method='POST' action="{{ route('homework.store') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        
         <div>
-            <input type="submit" value="Create">
+            Name:<br>
+            <input type="text" name="name" value="{{ old('name') }}">
+            @error('name')
+                <p>{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            Class:<br>
+            <input type="number" name="class" value="{{ old('class') }}">
+            @error('class')
+                <p>{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            URL:<br>
+            <input type="url" name="url" value="{{ old('url') }}">
+            @error('url')
+                <p>{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            <input type="submit" value="Create" class="link">
         </div>
     </form>
 </body>
