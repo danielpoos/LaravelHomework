@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
-    <h1>Edit homework</h1>
+<p id="smth">Edit homework</p>
     <form method='POST' action="{{ route('homework.update', $homework->id ) }}">
         @csrf
         @method('PATCH')
@@ -25,14 +25,14 @@
         </div>
         <div>
             Points:<br>
-            <input type="number" name="points" value="{{ $homework->points }}" min="0" max="5">
+            <input type="number" name="points" value="{{ $homework->points }}" min="0" max="5" class="editInput">
         </div>
         <div>
             Message:<br>
-            <input type="text" name="message" value="{{ $homework->message }}">
+            <input type="text" name="message" value="{{ $homework->message }}" class="editInput">
         </div>
         <div>
-            <input type="submit" value="Give feedback">
+            <input type="submit" value="Give feedback" class="link"><a href="{{ route('homework.index') }}" class="link">Back to the list of homeworks</a>
         </div>
     </form>
 </body>

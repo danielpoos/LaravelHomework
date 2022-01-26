@@ -21,7 +21,7 @@ class HomeworkController extends Controller
 
     public function store(HomeworkRequest $request)
     {
-        $data = $request->only(['points', 'message']);
+        $data = $request->only(['name', 'class', 'url']);
         $homework = new Homework();
         $homework->fill($data);
         $homework->save();

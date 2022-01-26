@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
-    <h1>The homework of {{ $homework->name }}</h1>
-    <p>{{ $homework->class }}</p>
+    <div class="pull"><p id="smth">The homework of {{ $homework->name }}</p>
+    <p>Class: {{ $homework->class }}</p>Url of the homework:<br>
     <a href="{{ $homework->url }}" target="_blank">{{$homework->url}}</a>
     @if($homework->points != 0)
-        <p>{{$homework->points}}</p>
-        <p>{{$homework->message}}</p>
+        <p>Points: {{$homework->points}}</p>
+        <p>Feedback: {{$homework->message}}</p>
     @endif
-    <p><a href="{{ route('homework.edit', $homework->id) }}">Edit this</a></p>
+    <p><a href="{{ route('homework.edit', $homework->id) }}">Edit this</a></p></div>
     <p><a href="{{ route('homework.index') }}" class="link">Back to the list of homeworks</a></p>
 </body>
 </html>

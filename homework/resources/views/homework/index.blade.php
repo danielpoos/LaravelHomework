@@ -20,7 +20,7 @@
         </tr>
     @foreach ($homework as $hw)
         <tr>
-            <td><a href="{{ route('homework.show', $hw->id) }}">{{ $hw->name }}</a></td>
+            <td><a href="{{ route('homework.show', $hw->id) }}" title="View homework">{{ $hw->name }}</a></td>
             <td>{{ $hw->class }}</td>
             <td><a href="{{ $hw->url }}" target="_blank">{{ $hw->url }}</a></td>
             <td>{{ $hw->points }}</td>
