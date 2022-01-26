@@ -1,0 +1,37 @@
+body{
+    background-color: #ab88ef;
+    font-family: 'Comic Sans MS';
+}
+th{
+    width:10%;
+}
+td{
+    text-align: center;
+}
+#smth{
+    font-size: 20pt;
+    font-style: italic;
+    color: darkblue;
+    margin: 1.5em 2em;
+}
+.text{
+    margin: 20px 20px;
+}
+.link{
+    margin: 40px 50px;
+    text-decoration: none;
+    font-weight: bolder;
+    color: purple;
+    border-bottom: darkmagenta 1px dashed;
+}
+button{
+    all:unset;
+    text-decoration: underline;
+}
+a{
+    font-weight: bolder;
+    color: purple;
+}
+div{
+    margin:auto 10px;
+}

@@ -5,21 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of homeworks</title>
-    <style>
-            body{
-                background-color: #abcdef;
-                font-family: 'Comic Sans MS';
-            }
-            h3{
-                margin: 1.5em 3em;
-            }
-            th{
-                width:10%;
-            }
-        </style>
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
-    <h3>List of homeworks</h3>
+    <p id="smth">List of homeworks</p>
     <table>
         <tr>
             <th>Name</th>
@@ -31,17 +20,20 @@
         </tr>
     @foreach ($homework as $hw)
         <tr>
-            <td>
-                <a href="{{ route('homework.show', $homework->id) }}">{{ $hw->name }}</a>
-            </td>
+            <td><a href="{{ route('homework.show', $hw->id) }}">{{ $hw->name }}</a></td>
             <td>{{ $hw->class }}</td>
-            <td>{{ $hw->url }}</td>
+            <td><a href="{{ $hw->url }}" target="_blank">{{ $hw->url }}</a></td>
             <td>{{ $hw->points }}</td>
             <td>{{ $hw->message }}</td>
-            <td><form action="{{ route('homework.destroy', $homework->id) }}" method="POST">
-                @csrf @method('DELETE')<button type="submit">Delete</button></form></td>    
+            <td>
+                <form action="{{ route('homework.destroy', $hw->id) }}" method="POST">
+                    @csrf @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
+            </td>    
         </tr>
     @endforeach
-    </table>
+    </table><a href="{{ route('homework.create') }}" class="link">Add new</a>
+    <a href="{{ route('welcome') }}" class="link">To the homepage</a>
 </body>
 </html>

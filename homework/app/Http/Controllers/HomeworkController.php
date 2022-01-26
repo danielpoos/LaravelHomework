@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\HomeworkRequest;
+use App\Http\Requests\HomeworkUpdateRequest;
 use App\Models\Homework;
 
 class HomeworkController extends Controller
 {
     public function index()
     {
-        $homework = Homework::where(1);
+        $homework = Homework::all();
         return view('homework.index', compact('homework'));
     }
 
@@ -32,13 +33,15 @@ class HomeworkController extends Controller
         return view('homework.show', ['homework' => $homework]);
     }
 
-    public function edit(Homework $homework)
+    public function edit(int $id)
     {
+        $homework = Homework::find($id);
         return view('homework.edit', ['homework' =>$homework]);
     }
 
-    public function update(HomeworkRequest $request, Homework $homework)
+    public function update(HomeworkUpdateRequest $request, int $id)
     {
+        $homework = Homework::find($id);
         $data = $request->only(['points', 'message']);
         $homework->fill($data);
         $homework->save();
